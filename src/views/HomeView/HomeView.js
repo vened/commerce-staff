@@ -36,14 +36,16 @@ export class HomeView extends React.Component {
 
         <h1>Welcome to the React Redux Starter Kit</h1>
         <h2>
-          Sample Counter:
+          Count:
           <span className={classes['counter--green']}>{this.props.counter}</span>
         </h2>
-        <RaisedButton label='Increment' onClick={() => this.props.increment(1)}/>
-        <button className='btn btn-default'
-                onClick={this.props.doubleAsync}>
-          Double (Async)
-        </button>
+
+        <div className={classes['divider']}></div>
+
+        <RaisedButton primary={true} label='Increment' onClick={() => this.props.increment(1)}/>
+        {' '}
+        <RaisedButton secondary={true} label='Double (Async)' onClick={this.props.doubleAsync}/>
+
         <hr />
         <Link to='/404'>Go to 404 Page</Link>
       </div>
