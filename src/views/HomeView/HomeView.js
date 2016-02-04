@@ -42,9 +42,9 @@ export class HomeView extends React.Component {
 
         <div className={classes['divider']}></div>
 
-        <RaisedButton primary={true} label='Increment' onClick={() => this.props.increment(1)}/>
+        <RaisedButton primary label='Increment' onClick={() => this.props.increment(1)}/>
         {' '}
-        <RaisedButton secondary={true} label='Double (Async)' onClick={this.props.doubleAsync}/>
+        <RaisedButton secondary label='Double (Async)' onClick={this.props.doubleAsync}/>
 
         <hr />
         <Link to='/404'>Go to 404 Page</Link>
