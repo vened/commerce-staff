@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { actions as counterActions } from '../../redux/modules/counter'
+
+import {RaisedButton} from 'material-ui';
+
 import DuckImage from './Duck.jpg'
 import classes from './HomeView.scss'
 
@@ -19,15 +22,15 @@ export class HomeView extends React.Component {
     doubleAsync: PropTypes.func.isRequired,
     increment: PropTypes.func.isRequired
   };
-
-  render () {
+  
+  render() {
     return (
       <div className='container text-center'>
         <div className='row'>
           <div className='col-xs-2 col-xs-offset-5'>
             <img className={classes.duck}
                  src={DuckImage}
-                 alt='This is a duck, because Redux.' />
+                 alt='This is a duck, because Redux.'/>
           </div>
         </div>
         <h1>Welcome to the React Redux Starter Kit</h1>
@@ -36,10 +39,7 @@ export class HomeView extends React.Component {
           {' '}
           <span className={classes['counter--green']}>{this.props.counter}</span>
         </h2>
-        <button className='btn btn-default'
-                onClick={() => this.props.increment(1)}>
-          Increment
-        </button>
+        <RaisedButton label="Increment" onClick={() => this.props.increment(1)}/>
         {' '}
         <button className='btn btn-default'
                 onClick={this.props.doubleAsync}>
