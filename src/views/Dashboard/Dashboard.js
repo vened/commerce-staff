@@ -19,7 +19,7 @@ export class Dashboard extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {open: false}
+    this.state = {open: true}
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -30,7 +30,7 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <AppBar
-          title='Title'
+          title='Staff'
           iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
         />
         <LeftNav docked={false}
