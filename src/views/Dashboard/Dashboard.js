@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { actions as counterActions } from '../../redux/modules/counter'
 
 import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui'
-import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
+import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 // import DuckImage from './Duck.jpg'
 // import classes from './HomeView.scss'
 
@@ -18,8 +18,8 @@ const mapStateToProps = (state) => ({
 export class Dashboard extends React.Component {
 
   constructor (props) {
-    super(props);
-    this.state = {open: false};
+    super(props)
+    this.state = {open: false}
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -30,7 +30,7 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <AppBar
-          title="Title"
+          title='Title'
           iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
         />
         <LeftNav docked={false}

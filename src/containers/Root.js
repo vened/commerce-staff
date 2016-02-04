@@ -3,12 +3,11 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-import MyRawTheme from './MaterialTheme';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import ThemeDecorator from 'material-ui/lib/styles/theme-decorator';
+import MyRawTheme from './MaterialTheme'
+import ThemeManager from 'material-ui/lib/styles/theme-manager'
+import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
 
-
-injectTapEventPlugin();
+injectTapEventPlugin()
 
 @ThemeDecorator(ThemeManager.getMuiTheme(MyRawTheme))
 class Root extends React.Component {
@@ -52,6 +51,5 @@ class Root extends React.Component {
     )
   }
 }
-
 
 export default Root
