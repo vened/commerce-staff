@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
-import { actions as counterActions } from '../../redux/modules/counter'
+import { actions as sessionActions } from '../../redux/modules/session'
 
-import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui'
+import {AppBar, LeftNav, MenuItem, IconButton, RaisedButton} from 'material-ui'
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 // import DuckImage from './Duck.jpg'
 // import classes from './HomeView.scss'
@@ -13,14 +13,20 @@ import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  session: state.session
 })
 export class Dashboard extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {open: true}
+    this.state = {open: false}
   }
+
+  static propTypes = {
+    session: PropTypes.number.isRequired,
+    doubleAsync: PropTypes.func.isRequired,
+    create: PropTypes.func.isRequired
+  };
 
   handleToggle = () => this.setState({open: !this.state.open});
 
@@ -41,9 +47,11 @@ export class Dashboard extends React.Component {
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </LeftNav>
+        <RaisedButton primary label='Increment' onClick={() => this.props.create(1)}/>
+
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, counterActions)(Dashboard)
+export default connect(mapStateToProps, sessionActions)(Dashboard)
