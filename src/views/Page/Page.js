@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react'
+
 import {AppBar, LeftNav, MenuItem, IconButton, RaisedButton} from 'material-ui'
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 
-export default class Dashboard extends React.Component {
+
+export class Page extends React.Component {
 
   constructor (props) {
     super(props)
@@ -10,7 +12,9 @@ export default class Dashboard extends React.Component {
   }
 
   static propTypes = {
-    //userCreateSession: PropTypes.func.isRequired
+    session: PropTypes.number.isRequired,
+    doubleAsync: PropTypes.func.isRequired,
+    create: PropTypes.func.isRequired
   };
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -32,8 +36,12 @@ export default class Dashboard extends React.Component {
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </LeftNav>
-        <RaisedButton primary label='Increment'/>
+
+        <h1>page</h1>
+
       </div>
     )
   }
 }
+
+export default Page
