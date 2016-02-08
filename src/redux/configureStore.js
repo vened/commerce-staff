@@ -18,6 +18,7 @@ export default function configureStore ({ initialState = {}, history }) {
 
   // Create final store and subscribe router in debug env ie. for devtools
   const store = middleware(createStore)(rootReducer, initialState)
+
   if (__DEBUG__) routerMiddleware.listenForReplays(store, ({ router }) => router.location)
 
   if (module.hot) {
