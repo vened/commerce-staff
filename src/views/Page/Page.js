@@ -1,8 +1,7 @@
 import React, {PropTypes} from 'react'
 
-import {AppBar, LeftNav, MenuItem, IconButton, RaisedButton} from 'material-ui'
+import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui'
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
-
 
 export class Page extends React.Component {
 

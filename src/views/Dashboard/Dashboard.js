@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import {AppBar, LeftNav, MenuItem, IconButton, RaisedButton} from 'material-ui'
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 
@@ -8,10 +8,6 @@ export default class Dashboard extends React.Component {
     super(props)
     this.state = {open: false}
   }
-
-  static propTypes = {
-    //userCreateSession: PropTypes.func.isRequired
-  };
 
   handleToggle = () => this.setState({open: !this.state.open});
 

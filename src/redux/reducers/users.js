@@ -1,4 +1,4 @@
-import ActionTypes from '../constants/ActionTypes';
+import ActionTypes from '../ActionTypes'
 import {createReducer} from '../utils/createReducer'
 
 const initialState = {
