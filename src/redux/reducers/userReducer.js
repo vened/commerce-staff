@@ -2,18 +2,16 @@ import ActionTypes from '../ActionTypes'
 import {createReducer} from '../utils/createReducer'
 
 const initialState = {
-  token: null,
-  userName: null,
-  isAuthenticated: false,
-  isAuthenticating: false,
-  statusText: null
+  access_token: null,
+  email: null,
+  user_id: null
 }
 
 export default createReducer(initialState, {
-  [ActionTypes.USER_CREATE_SESSION]: (state, payload) => {
+  [ActionTypes.USER_CREATE_SESSION]: (state, user) => {
+    console.log(user)
     return Object.assign({}, state, {
-      'isAuthenticating': true,
-      'statusText': null
+      ...state
     })
   }
 })

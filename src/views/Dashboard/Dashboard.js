@@ -7,9 +7,13 @@ import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu'
 
 export class Dashboard extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {open: false}
+  constructor (props, context) {
+    super(props, context);
+    this.state = {
+      open: false,
+      username: 'maxstbn@yandex.ru',
+      password: 'qwerty123',
+    };
   }
 
   static propTypes = {
@@ -23,8 +27,20 @@ export class Dashboard extends React.Component {
 
   login (e) {
     var { dispatch } = this.props
-    dispatch(userCreateSession())
+    dispatch(userCreateSession({
+      username: this.state.username,
+      password: this.state.password
+    }))
   }
+
+  handleChangeName (e) {
+    this.setState({username: e.target.value});
+  }
+
+  handleChangePassword (e) {
+    this.setState({password: e.target.value});
+  }
+
 
   render () {
     return (
@@ -41,7 +57,12 @@ export class Dashboard extends React.Component {
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </LeftNav>
-        <RaisedButton primary label='Increment' onClick={this.login.bind(this)}/>
+
+        <form>
+          <input type="text" name="username" value={this.state.username} onChange={this.handleChangeName.bind(this)}/>
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChangePassword.bind(this)}/>
+          <RaisedButton primary label='Increment' onClick={this.login.bind(this)}/>
+        </form>
       </div>
     )
   }
