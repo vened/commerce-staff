@@ -9,7 +9,6 @@ const initialState = {
 
 export default createReducer(initialState, {
   [ActionTypes.USER_CREATE_SESSION]: (state, user) => {
-    console.log(user)
     return Object.assign({}, state, {
       ...state
     })
