@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { userCreateSession } from '../../redux/actions/UserActions'
 
@@ -54,8 +55,11 @@ export class Dashboard extends React.Component {
                  open={this.state.open}
                  onRequestChange={open => this.setState({open})}
         >
-          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>
+            <Link to='/page'>Go to 404 Page</Link>
+          </MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
+
         </LeftNav>
 
         <form>

@@ -12,6 +12,7 @@ export default (store) => (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={Dashboard}/>
     <Route path='page' component={requireAuthentication(Page)}/>
+    <Route path='login' component={Dashboard}/>
     <Route path='/404' component={NotFoundView}/>
     <Redirect from='*' to='/404'/>
   </Route>
