@@ -78,8 +78,7 @@ config.globals = {
   '__TEST__'     : config.env === 'test',
   '__DEBUG__'    : config.env === 'development' && !argv.no_debug,
   '__DEBUG_NEW_WINDOW__' : !!argv.nw,
-  '__BASENAME__' : JSON.stringify(process.env.BASENAME || ''),
-  '__API_HOST__' : JSON.stringify('//localhost:3000/api/v1/')
+  '__BASENAME__' : JSON.stringify(process.env.BASENAME || '')
 }
 
 // ------------------------------------

@@ -4,7 +4,8 @@ import {createReducer} from '../utils/createReducer'
 const initialState = {
   access_token: null,
   email: null,
-  user_id: null
+  user_id: null,
+  isAuthenticated: false
 }
 
 export default createReducer(initialState, {

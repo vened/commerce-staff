@@ -2,17 +2,9 @@ import ActionTypes from '../ActionTypes'
 import request from 'superagent'
 import { USER_LOGIN } from '../api'
 
-/*
- * генераторы действий
- */
-//export function userCreateSession (name) {
-//  return {
-//    type: ActionTypes.USER_CREATE_SESSION,
-//    name
-//  }
-//}
 
 export function userCreateSession (form) {
+  console.log(USER_LOGIN)
   return dispatch => {
     return request.post(USER_LOGIN)
       .send(form)
