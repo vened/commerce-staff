@@ -4,15 +4,18 @@ import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
 
 export default function configureStore ({ initialState = {}, history }) {
+
   // Sync with router via history instance (main.js)
   const routerMiddleware = syncHistory(history)
 
   // Compose final middleware and use devtools in debug environment
   let middleware = applyMiddleware(thunk, routerMiddleware)
   if (__DEBUG__) {
-    const devTools = window.devToolsExtension
-      ? window.devToolsExtension()
-      : require('containers/DevTools').default.instrument()
+    if(window.devToolsExtension){
+      var devTools = window.devToolsExtension()
+    }else{
+      var devTools = require('containers/DevTools').default.instrument()
+    }
     middleware = compose(middleware, devTools)
   }
 
