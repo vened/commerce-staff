@@ -18,6 +18,8 @@ export function userCreateSession (form) {
 function userSetSession (user) {
   return {
     type: ActionTypes.USER_CREATE_SESSION,
-    user: user
+    payload: {
+      ...user
+    }
   }
 }
