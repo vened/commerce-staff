@@ -21,7 +21,7 @@ const ApiClient = {
     }),
     post: (path, params) => new Promise((resolve, reject) => {
         request
-            .post(USER_LOGIN)
+            .post(path)
             .send(params)
             .accept('application/json')
             .end((err, res) => {
@@ -43,7 +43,7 @@ function handleError (err, reject) {
     reject({
         message: err.response && err.response.body ? err.response.body.Message : err.message,
         status: err.status
-    })
+    });
 }
 
 export default ApiClient;

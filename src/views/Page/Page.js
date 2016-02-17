@@ -9,12 +9,6 @@ export class Page extends React.Component {
         this.state = {open: false};
     }
 
-    static propTypes = {
-        session: PropTypes.number.isRequired,
-        doubleAsync: PropTypes.func.isRequired,
-        create: PropTypes.func.isRequired
-    };
-
     handleToggle = () => this.setState({open: !this.state.open});
 
     handleClose = () => this.setState({open: false});

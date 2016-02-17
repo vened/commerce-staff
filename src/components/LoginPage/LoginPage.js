@@ -26,17 +26,16 @@ export class LoginPage extends React.Component {
 
     checkAuth () {
         if (this.props.isAuthenticated) {
-            let redirectAfterLogin = this.props.location.query.next;
-            this.props.dispatch(routeActions.push(`${redirectAfterLogin}`));
+            let redirectAfterLogin = this.props.location.query.next ? this.props.location.query.next : '/';
+            this.props.dispatch(routeActions.push(redirectAfterLogin));
         }
     }
 
     login () {
-        this.props.dispatch(userCreateSession({
-            username: this.state.username,
-            password: this.state.password
-        }));
-        this.checkAuth();
+        this.props.dispatch(userCreateSession(this.state))
+            .then(() => {
+                this.checkAuth();
+            });
     }
 
     handleChangeName (e) {
@@ -78,7 +77,7 @@ export class LoginPage extends React.Component {
                         </div>
                         <div className={classes.RaisedButton}>
                             <RaisedButton primary
-                                          fullWidth={true}
+                                          fullWidth
                                           label='Войти'
                                           onClick={this.login.bind(this)}/>
                         </div>

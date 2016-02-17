@@ -4,12 +4,12 @@ import { USER_LOGIN } from '../api';
 
 export function userCreateSession (form) {
     return dispatch => {
-        return apiClient.post(USER_LOGIN, form)
+        return ApiClient.post(USER_LOGIN, form)
             .then((data) => {
                 dispatch(userSetSession(data));
-            }).catch((err, data)=> {
-
-            })
+            }).catch((err, data) => {
+                console.log(`error ${USER_LOGIN} - ${err}`);
+            });
     };
 }
 
