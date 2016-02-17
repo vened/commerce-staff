@@ -11,5 +11,10 @@ export default createReducer(initialState, {
         return Object.assign({}, state, {
             ...payload
         });
+    },
+    [ActionTypes.USERS_GET_LIST]: (state, payload) => {
+        return Object.assign({}, state, {
+            users: {...payload}
+        });
     }
 });

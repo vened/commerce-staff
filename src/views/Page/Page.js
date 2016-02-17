@@ -2,16 +2,28 @@ import React, {PropTypes} from 'react';
 import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui';
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
 
+import { connect } from 'react-redux';
+import { userGetList } from '../../redux/actions/UserActions';
+
 export class Page extends React.Component {
 
     constructor (props) {
         super(props);
-        this.state = {open: false};
+        this.state = { open: false };
     }
 
-    handleToggle = () => this.setState({open: !this.state.open});
+    componentWillMount () {
+        this.getUsers();
+    }
 
-    handleClose = () => this.setState({open: false});
+    getUsers () {
+        this.props.dispatch(userGetList())
+    }
+
+
+    handleToggle = () => this.setState({ open: !this.state.open });
+
+    handleClose = () => this.setState({ open: false });
 
     render () {
         return (
@@ -34,6 +46,15 @@ export class Page extends React.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        dispatch: PropTypes.func.isRequired
+    };
 }
 
-export default Page;
+function mapStateToProps (state) {
+    return {
+        users: state.users
+    };
+}
+export default connect(mapStateToProps)(Page);
