@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { routeActions } from 'react-router-redux';
 import { userCreateSession } from '../../redux/actions/UserActions';
 import classes from './LoginPage.scss';
 
@@ -10,17 +11,32 @@ export class LoginPage extends React.Component {
     constructor (props, context) {
         super(props, context);
         this.state = {
-            username: null,
-            password: null
+            username: 'maxstbn@yandex.ru',
+            password: 'qwerty123'
         };
     }
 
+    componentWillMount () {
+        this.checkAuth();
+    }
+
+    componentWillReceiveProps (nextProps) {
+        this.checkAuth();
+    }
+
+    checkAuth () {
+        if (this.props.isAuthenticated) {
+            let redirectAfterLogin = this.props.location.query.next;
+            this.props.dispatch(routeActions.push(`${redirectAfterLogin}`));
+        }
+    }
+
     login () {
-        var { dispatch } = this.props;
-        dispatch(userCreateSession({
+        this.props.dispatch(userCreateSession({
             username: this.state.username,
             password: this.state.password
         }));
+        this.checkAuth();
     }
 
     handleChangeName (e) {
@@ -73,13 +89,16 @@ export class LoginPage extends React.Component {
     }
 
     static propTypes = {
-        dispatch: PropTypes.func.isRequired
+        dispatch: PropTypes.func.isRequired,
+        isAuthenticated: PropTypes.bool.isRequired,
+        location: PropTypes.object.isRequired
     };
 }
 
 function mapStateToProps (state) {
     return {
-        user: state.user
+        user: state.user,
+        isAuthenticated: state.user.isAuthenticated
     };
 }
 export default connect(mapStateToProps)(LoginPage);

@@ -1,15 +1,15 @@
 import ActionTypes from '../ActionTypes';
-import request from 'superagent';
+import ApiClient from '../utils/ApiClient';
 import { USER_LOGIN } from '../api';
 
 export function userCreateSession (form) {
     return dispatch => {
-        return request.post(USER_LOGIN)
-            .send(form)
-            .end(function (err, res) {
-                dispatch(userSetSession(res.body));
-                console.log(err);
-            });
+        return apiClient.post(USER_LOGIN, form)
+            .then((data) => {
+                dispatch(userSetSession(data));
+            }).catch((err, data)=> {
+
+            })
     };
 }
 
