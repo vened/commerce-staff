@@ -1,15 +1,13 @@
 import ActionTypes from '../ActionTypes';
 import { createReducer } from '../utils/createReducer';
+import { setSessionStorage, getSessionStorage } from '../utils/sessionStorage';
 
-const initialState = {
-    access_token: null,
-    email: null,
-    user_id: null,
-    isAuthenticated: false
-};
+let user = getSessionStorage('user');
+let initialState = user ? { ...user } : { isAuthenticated: false };
 
 export default createReducer(initialState, {
     [ActionTypes.USER_CREATE_SESSION]: (state, payload) => {
+        setSessionStorage('user', payload);
         return Object.assign({}, state, {
             ...payload
         });
