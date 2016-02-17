@@ -1,0 +1,25 @@
+.container{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, .2);
+}
+.form{
+    display: block;
+    padding: 10px 30px 30px;
+    background: rgba(255, 255, 255, 1);
+}
+.AppBar{
+    h1{
+        text-align: center;
+    }
+}
+.TextField{
+    display: block !important;
+}
+.RaisedButton{
+    margin: 30px 0 0 0;
+}
