@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
-import {AppBar, LeftNav, MenuItem, IconButton, List, ListItem} from 'material-ui';
-import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
+import {List, ListItem} from 'material-ui';
 import lodash from 'lodash';
 
 
@@ -11,7 +10,6 @@ export class Page extends React.Component {
 
     constructor (props) {
         super(props);
-        this.state = { open: false };
     }
 
     componentWillMount () {
@@ -22,36 +20,8 @@ export class Page extends React.Component {
         this.props.dispatch(userGetList())
     }
 
-
-    handleToggle = () => this.setState({ open: !this.state.open });
-
-    handleClose = () => this.setState({ open: false });
-
     render () {
-        return (
-            <div>
-                <AppBar
-                    title='Staff'
-                    iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
-                />
-                <LeftNav docked={false}
-                         width={200}
-                         open={this.state.open}
-                         onRequestChange={open => this.setState({open})}
-                >
-                    <MenuItem>Menu Item</MenuItem>
-                    <MenuItem>Menu Item 2</MenuItem>
-                </LeftNav>
-
-                {this.renderUsers()}
-
-            </div>
-        );
-    }
-
-    renderUsers () {
         let users = this.props.users.list;
-
         if (users) {
             return (
                 <List>

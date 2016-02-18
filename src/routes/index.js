@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
-import CoreLayout from 'layouts/CoreLayout/CoreLayout';
+import CoreLayout from 'layouts/CoreLayout';
 import Dashboard from 'views/Dashboard/Dashboard';
 import LoginPage from '../components/LoginPage/LoginPage';
 import Page from '../views/Page/Page';
