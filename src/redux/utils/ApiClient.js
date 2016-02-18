@@ -1,4 +1,5 @@
 import request from 'superagent';
+import { setSessionStorage, getSessionStorage } from '../utils/sessionStorage';
 
 const ApiClient = {
 
@@ -7,6 +8,7 @@ const ApiClient = {
             .get(path)
             .query(params)
             .accept('application/json')
+            .set('Authorization', getSessionStorage('session').access_token)
             .end((err, res) => {
                 if (err) {
                     if (err.status === 404) {
