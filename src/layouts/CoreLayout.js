@@ -30,6 +30,7 @@ export class CoreLayout extends React.Component {
             { name: 'Администраторы', url: urls.admins }
         ];
 
+
         let leftNavWidth = 200;
         let appBarHeight = 64;
 

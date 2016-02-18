@@ -1,5 +1,5 @@
-import keyMirror from 'fbjs/lib/keyMirror';
-
-export default keyMirror({
-    admins: null
-});
+const urls = {
+    root: '',
+    admins: 'admins'
+};
+export default urls;
