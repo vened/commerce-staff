@@ -1,7 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
-import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui';
-import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
 
 export class Dashboard extends React.Component {
 
@@ -19,21 +16,7 @@ export class Dashboard extends React.Component {
     render () {
         return (
             <div>
-                <AppBar
-                    title='Staff'
-                    iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
-                />
-                <LeftNav docked={false}
-                         width={200}
-                         open={this.state.open}
-                         onRequestChange={open => this.setState({open})}
-                >
-                    <MenuItem>
-                        <Link to='/page'>Go to 404 Page</Link>
-                    </MenuItem>
-                    <MenuItem>Menu Item 2</MenuItem>
-
-                </LeftNav>
+                Dashboard
             </div>
         );
     }

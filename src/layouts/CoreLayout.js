@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { routeActions } from 'react-router-redux';
 import { connect } from 'react-redux';
+import urls from '../helpers/urls';
 
 import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui';
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
@@ -26,7 +27,7 @@ export class CoreLayout extends React.Component {
     render () {
         let sidebarItems = [
             { name: 'Категории', url: '' },
-            { name: 'Администраторы', url: 'admins' }
+            { name: 'Администраторы', url: urls.admins }
         ];
 
         let leftNavWidth = 200;
@@ -40,7 +41,7 @@ export class CoreLayout extends React.Component {
 
         let contentContainerStyle = {
             paddingLeft: leftNavWidth + 10,
-            paddingTop: appBarHeight
+            paddingTop: appBarHeight + 10
         };
 
         let AppBarStyle = {

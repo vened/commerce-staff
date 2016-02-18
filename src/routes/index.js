@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
+import urls from '../helpers/urls';
 
 import CoreLayout from 'layouts/CoreLayout';
 import Dashboard from 'views/Dashboard/Dashboard';
@@ -11,11 +12,11 @@ import {requireAuthentication} from '../components/AuthenticatedComponent';
 
 export default (store) => (
     <Route path='/'>
-        <IndexRoute component={requireAuthentication(Dashboard)}/>
         <Route path='login' component={LoginPage}/>
 
         <Route component={CoreLayout}>
-            <Route path='admins' component={requireAuthentication(Page)}/>
+            <IndexRoute component={requireAuthentication(Dashboard)}/>
+            <Route path={urls.admins} component={requireAuthentication(Page)}/>
         </Route>
 
         <Route path='/404' component={NotFoundView}/>
