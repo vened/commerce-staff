@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import urls from '../../helpers/urls';
 import {LeftNav, MenuItem} from 'material-ui';
 
+const sidebarItems = [
+    { name: 'Категории', url: '' },
+    { name: 'Администраторы', url: urls.admins }
+];
+
 export class Sidebar extends React.Component {
     constructor (props) {
         super(props);
@@ -15,11 +20,6 @@ export class Sidebar extends React.Component {
     }
 
     render () {
-        let sidebarItems = [
-            { name: 'Категории', url: '' },
-            { name: 'Администраторы', url: urls.admins }
-        ];
-
         let leftNavStyle = {
             zIndex: 1000,
             paddingTop: this.props.appBarHeight,

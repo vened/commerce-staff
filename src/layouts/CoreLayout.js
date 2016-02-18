@@ -11,6 +11,10 @@ import '../styles/core.scss';
 export class CoreLayout extends React.Component {
     constructor (props) {
         super(props);
+
+        this.state = {
+            title: 'Staff'
+        };
     }
 
     render () {
@@ -29,7 +33,7 @@ export class CoreLayout extends React.Component {
         return (
             <div className='CoreLayout'>
                 <AppBar
-                    title='Staff'
+                    title={this.state.title}
                     zDepth={1}
                     style={AppBarStyle}
                     showMenuIconButton={false}
