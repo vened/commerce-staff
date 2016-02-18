@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
-import { userCreateSession } from '../../redux/actions/UserActions';
+import { createSession } from '../../redux/actions/SessionActions';
 import classes from './LoginPage.scss';
 
 import { AppBar, RaisedButton, TextField } from 'material-ui';
@@ -32,7 +32,7 @@ export class LoginPage extends React.Component {
     }
 
     login () {
-        this.props.dispatch(userCreateSession(this.state))
+        this.props.dispatch(createSession(this.state))
             .then(() => {
                 this.checkAuth();
             });
@@ -96,8 +96,8 @@ export class LoginPage extends React.Component {
 
 function mapStateToProps (state) {
     return {
-        user: state.user,
-        isAuthenticated: state.user.isAuthenticated
+        session: state.session,
+        isAuthenticated: state.session.isAuthenticated
     };
 }
 export default connect(mapStateToProps)(LoginPage);

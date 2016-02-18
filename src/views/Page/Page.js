@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
-import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui';
+import {AppBar, LeftNav, MenuItem, IconButton, List, ListItem} from 'material-ui';
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
+import lodash from 'lodash';
+
 
 import { connect } from 'react-redux';
 import { userGetList } from '../../redux/actions/UserActions';
@@ -43,12 +45,37 @@ export class Page extends React.Component {
 
                 <h1>page</h1>
 
+                {this.renderUsers()}
+
             </div>
         );
     }
 
+    renderUsers () {
+        let users = this.props.users.list;
+
+        if (users) {
+            return (
+                <List>
+                    {
+                        users.map((item, ix) => {
+                            return (
+                                <ListItem key={ix}
+                                          primaryText={item.email}
+                                />
+                            )
+                        }, this)
+                    }
+                </List>
+            )
+        } else {
+            return null
+        }
+    }
+
     static propTypes = {
-        dispatch: PropTypes.func.isRequired
+        dispatch: PropTypes.func.isRequired,
+        users: PropTypes.object.isRequired
     };
 }
 
