@@ -30,10 +30,13 @@ export class CoreLayout extends React.Component {
             position: 'fixed'
         };
 
+        let PageName = this.props.route.name ? this.props.route.name : 'Staff';
+
         return (
+
             <div className='CoreLayout'>
                 <AppBar
-                    title={this.state.title}
+                    title={PageName}
                     zDepth={1}
                     style={AppBarStyle}
                     showMenuIconButton={false}

@@ -14,8 +14,11 @@ export default (store) => (
     <Route path='/'>
         <Route path='login' component={LoginPage}/>
 
-        <Route component={CoreLayout}>
+        <Route name="Dashboard" component={CoreLayout}>
             <IndexRoute component={requireAuthentication(Dashboard)}/>
+        </Route>
+
+        <Route name="Admin" component={CoreLayout}>
             <Route path={urls.admins} component={requireAuthentication(Page)}/>
         </Route>
 
