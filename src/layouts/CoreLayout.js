@@ -1,44 +1,21 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import { routeActions } from 'react-router-redux';
 import { connect } from 'react-redux';
 import urls from '../helpers/urls';
 
-import {AppBar, LeftNav, MenuItem, IconButton} from 'material-ui';
+import Sidebar from '../components/Sidebar/Sidebar';
+import {AppBar, IconButton} from 'material-ui';
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
 import '../styles/core.scss';
 
 export class CoreLayout extends React.Component {
     constructor (props) {
         super(props);
-        this.state = { open: true };
-    }
-
-    handleToggle = () => this.setState({ open: !this.state.open });
-
-    handleClose = () => this.setState({ open: false });
-
-    navGo (url) {
-        //event.preventDefault();
-        console.log(`go ${url}`)
-        this.props.dispatch(routeActions.push(url));
     }
 
     render () {
-        let sidebarItems = [
-            { name: 'Категории', url: '' },
-            { name: 'Администраторы', url: urls.admins }
-        ];
-
-
-        let leftNavWidth = 200;
+        let leftNavWidth = 240;
         let appBarHeight = 64;
-
-        let leftNavStyle = {
-            zIndex: 1000,
-            paddingTop: appBarHeight,
-            width: leftNavWidth
-        };
 
         let contentContainerStyle = {
             paddingLeft: leftNavWidth + 10,
@@ -58,24 +35,10 @@ export class CoreLayout extends React.Component {
                     showMenuIconButton={false}
                     iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
                 />
-                <LeftNav docked
-                         style={leftNavStyle}
-                         open={this.state.open}
-                         onRequestChange={open => this.setState({open})}
-                >
-                    {
-                        sidebarItems.map((item, ix) => {
-                            return (
-                                <MenuItem
-                                    key={ix}
-                                    onTouchTap={this.navGo.bind(this, item.url)}
-                                >
-                                    {item.name}
-                                </MenuItem>
-                            )
-                        }, this)
-                    }
-                </LeftNav>
+                <Sidebar
+                    leftNavWidth={leftNavWidth}
+                    appBarHeight={appBarHeight}
+                />
                 <div style={contentContainerStyle} className='CoreLayoutContentContainer'>
                     {this.props.children}
                 </div>
