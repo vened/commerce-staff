@@ -43,8 +43,6 @@ export class Page extends React.Component {
                     <MenuItem>Menu Item 2</MenuItem>
                 </LeftNav>
 
-                <h1>page</h1>
-
                 {this.renderUsers()}
 
             </div>
