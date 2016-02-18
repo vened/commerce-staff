@@ -12,4 +12,3 @@ export default function reducerUser (state = initialState, action = null) {
             return state;
     }
 }
-

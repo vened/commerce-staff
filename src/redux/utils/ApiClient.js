@@ -1,5 +1,5 @@
 import request from 'superagent';
-import { setSessionStorage, getSessionStorage } from '../utils/sessionStorage';
+import { getSessionStorage } from '../utils/sessionStorage';
 
 const ApiClient = {
 

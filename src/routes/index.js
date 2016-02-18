@@ -10,10 +10,13 @@ import NotFoundView from 'views/NotFoundView/NotFoundView';
 import {requireAuthentication} from '../components/AuthenticatedComponent';
 
 export default (store) => (
-    <Route path='/' component={CoreLayout}>
+    <Route path='/'>
         <IndexRoute component={requireAuthentication(Dashboard)}/>
         <Route path='login' component={LoginPage}/>
-        <Route path='page' component={requireAuthentication(Page)}/>
+
+        <Route component={CoreLayout}>
+            <Route path='admins' component={requireAuthentication(Page)}/>
+        </Route>
 
         <Route path='/404' component={NotFoundView}/>
         <Redirect from='*' to='/404'/>
