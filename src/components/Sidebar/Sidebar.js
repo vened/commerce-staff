@@ -5,8 +5,9 @@ import urls from '../../helpers/urls';
 import {LeftNav, MenuItem} from 'material-ui';
 
 const sidebarItems = [
-    { name: 'Категории', url: '' },
-    { name: 'Администраторы', url: urls.admins }
+    { name: urls.root.name, url: urls.root.url },
+    { name: urls.admins.name, url: urls.admins.url },
+    { name: urls.categories.name, url: urls.categories.url }
 ];
 
 export class Sidebar extends React.Component {
