@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
 import classes from '../styles/Categories.scss';
 
+import { categoryGetList } from '../redux/actions/categoryActions';
 //import { AppBar, RaisedButton, TextField } from 'material-ui';
 
 export class Categories extends React.Component {
@@ -13,6 +14,14 @@ export class Categories extends React.Component {
     constructor (props, context) {
         super(props, context);
         this.state = {};
+    }
+
+    componentWillMount () {
+        this.getUsers();
+    }
+
+    getUsers () {
+        this.props.dispatch(categoryGetList())
     }
 
     render () {
@@ -24,14 +33,14 @@ export class Categories extends React.Component {
     }
 
     static propTypes = {
-        dispatch: PropTypes.func.isRequired
+        dispatch: PropTypes.func.isRequired,
+        categories: PropTypes.object.isRequired
     };
 }
 
 function mapStateToProps (state) {
     return {
-        session: state.session,
-        isAuthenticated: state.session.isAuthenticated
+        categories: state.categories,
     };
 }
 export default connect()(Categories);
