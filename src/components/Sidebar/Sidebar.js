@@ -1,14 +1,8 @@
 import React, { PropTypes } from 'react';
 import { routeActions } from 'react-router-redux';
 import { connect } from 'react-redux';
-import urls from '../../helpers/urls';
+import sidebarItems from '../../helpers/menuItems';
 import {LeftNav, MenuItem} from 'material-ui';
-
-const sidebarItems = [
-    { name: urls.root.name, url: urls.root.url },
-    { name: urls.admins.name, url: urls.admins.url },
-    { name: urls.categories.name, url: urls.categories.url }
-];
 
 export class Sidebar extends React.Component {
     constructor (props) {

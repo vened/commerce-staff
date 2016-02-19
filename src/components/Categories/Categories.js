@@ -3,6 +3,7 @@
  */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { routeActions } from 'react-router-redux';
 import { categoryGetList } from '../../redux/actions/categoryActions';
 import setAppBarTitle from '../../redux/actions/configActions';
 import urls from '../../helpers/urls';
@@ -19,7 +20,11 @@ export class Categories extends React.Component {
 
     componentWillMount () {
         this.getCategoriesList();
-        this.props.dispatch(setAppBarTitle(urls.categories.name));
+        this.props.dispatch(setAppBarTitle(urls.categories.list.name));
+    }
+
+    navGo (url) {
+        this.props.dispatch(routeActions.push(url));
     }
 
     getCategoriesList () {
@@ -41,7 +46,7 @@ export class Categories extends React.Component {
                         }
                     </List>
                     <div className='btn-add-content'>
-                        <FloatingActionButton><ContentAdd/></FloatingActionButton>
+                        <FloatingActionButton onClick={this.navGo.bind(this, urls.categories.create.url)}><ContentAdd/></FloatingActionButton>
                     </div>
                 </div>
             );

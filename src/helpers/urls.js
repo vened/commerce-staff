@@ -8,8 +8,15 @@ const urls = {
         url: 'admins'
     },
     categories: {
-        name: 'Категории',
-        url: 'categories'
+        list: {
+            name: 'Категории',
+            url: 'categories'
+        },
+        create: {
+            name: 'Новая категория',
+            url: '/categories/create'
+        }
     }
 };
+
 export default urls;
