@@ -11,10 +11,6 @@ import '../styles/core.scss';
 export class CoreLayout extends React.Component {
     constructor (props) {
         super(props);
-
-        this.state = {
-            title: 'Staff'
-        };
     }
 
     render () {
@@ -30,13 +26,11 @@ export class CoreLayout extends React.Component {
             position: 'fixed'
         };
 
-        let PageName = this.props.route.name ? this.props.route.name : 'Staff';
-
         return (
 
             <div className='CoreLayout'>
                 <AppBar
-                    title={PageName}
+                    title={this.props.title}
                     zDepth={1}
                     style={AppBarStyle}
                     showMenuIconButton={false}
@@ -61,7 +55,8 @@ CoreLayout.propTypes = {
 
 function mapStateToProps (state) {
     return {
-        email: state.session.email,
+        title: state.config.title,
+        email: state.session.email
     };
 }
 export default connect(mapStateToProps)(CoreLayout);

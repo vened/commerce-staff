@@ -5,6 +5,8 @@ import lodash from 'lodash';
 
 import { connect } from 'react-redux';
 import { userGetList } from '../../redux/actions/UserActions';
+import setAppBarTitle from '../../redux/actions/configActions';
+import urls from '../../helpers/urls';
 
 export class Page extends React.Component {
 
@@ -14,6 +16,7 @@ export class Page extends React.Component {
 
     componentWillMount () {
         this.getUsers();
+        this.props.dispatch(setAppBarTitle(urls.admins.name))
     }
 
     getUsers () {

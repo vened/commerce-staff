@@ -3,11 +3,13 @@
  */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { categoryGetList, categoryCreate } from '../../redux/actions/categoryActions';
+import setAppBarTitle from '../../redux/actions/configActions';
+import urls from '../../helpers/urls';
 import { routeActions } from 'react-router-redux';
 import { reduxForm } from 'redux-form';
 
-import cssClass from '../styles/Categories.scss';
-import { categoryGetList, categoryCreate } from '../redux/actions/categoryActions';
+import cssClass from '../../styles/Categories.scss';
 import { List, ListItem, TextField, FlatButton, RaisedButton, Dialog } from 'material-ui';
 //import { AppBar, RaisedButton, TextField } from 'material-ui';
 
@@ -35,6 +37,7 @@ export class Categories extends React.Component {
 
     componentWillMount () {
         this.getUsers();
+        this.props.dispatch(setAppBarTitle(urls.categories.name))
     }
 
     getUsers () {
@@ -49,7 +52,13 @@ export class Categories extends React.Component {
                     {
                         categories.map((item, ix) => {
                             return (
-                                <ListItem key={ix} primaryText={item.title}/>
+                                <ListItem key={ix} primaryText={item.title}>
+                                    <FlatButton
+                                        label="Отмена"
+                                        secondary={true}
+                                        onTouchTap={this.handleClose}
+                                    />
+                                </ListItem>
                             )
                         }, this)
                     }
@@ -97,7 +106,6 @@ export class Categories extends React.Component {
                         </div>
                     </form>
                 </Dialog>
-
 
             </div>
         );
