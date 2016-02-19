@@ -7,7 +7,7 @@ import Dashboard from '../components/Dashboard/Dashboard';
 import LoginPage from '../components/LoginPage/LoginPage';
 import Page from '../views/Page/Page';
 
-import List from '../components/Categories/List';
+import Categories from '../components/Categories/Categories';
 
 import NotFoundView from 'views/NotFoundView/NotFoundView';
 
@@ -18,9 +18,13 @@ export default (store) => (
         <Route path='login' component={LoginPage}/>
 
         <Route name={urls.root.name} component={CoreLayout}>
+
             <IndexRoute component={requireAuthentication(Dashboard)}/>
+
+            <Route path={urls.categories.url} component={requireAuthentication(Categories)}/>
+
             <Route path={urls.admins.url} component={requireAuthentication(Page)}/>
-            <Route path={urls.categories.url} component={requireAuthentication(List)}/>
+
         </Route>
 
         <Route path='/404' component={NotFoundView}/>
