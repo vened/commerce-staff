@@ -35,4 +35,19 @@
     .CoreLayoutContentContainer{
         padding: 10px;
     }
+
+    .loader{
+        height: 100%;
+        padding-top: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-add-content{
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
 }
