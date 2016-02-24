@@ -24,6 +24,7 @@ export default (store) => (
 
             <Route path={urls.categories.list.url} component={requireAuthentication(Categories)}/>
             <Route path={urls.categories.create.url} component={requireAuthentication(CategoriesForm)}/>
+            <Route path={`${urls.categories.edit.url}/:id`} component={requireAuthentication(CategoriesForm)}/>
 
             <Route path={urls.admins.url} component={requireAuthentication(Page)}/>
 

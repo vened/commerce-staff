@@ -9,8 +9,13 @@ import setAppBarTitle from '../../redux/actions/configActions';
 import urls from '../../helpers/urls';
 
 import cssClass from '../../styles/Categories.scss';
-import { List, ListItem, FloatingActionButton, CircularProgress } from 'material-ui';
+import Colors from 'material-ui/lib/styles/colors';
+import { List, ListItem, FloatingActionButton, CircularProgress, IconButton } from 'material-ui';
+import EditorModeEdit from 'material-ui/lib/svg-icons/editor/mode-edit';
 import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import Delete from 'material-ui/lib/svg-icons/action/delete';
+import FileFolder from 'material-ui/lib/svg-icons/file/folder';
+import Avatar from 'material-ui/lib/avatar';
 
 export class Categories extends React.Component {
 
@@ -33,6 +38,7 @@ export class Categories extends React.Component {
 
     render () {
         var categories = this.props.categories.list;
+
         if (categories) {
             return (
                 <div className={cssClass.container}>
@@ -40,13 +46,51 @@ export class Categories extends React.Component {
                         {
                             categories.map((item, ix) => {
                                 return (
-                                    <ListItem key={ix} primaryText={item.title}/>
+                                    <ListItem key={ix}
+                                              nestedItems={[<ListItem key={ix} primaryText={item.title} />]}
+                                              leftAvatar={<Avatar icon={<FileFolder />} />}
+                                    >
+                                        {item.title}
+                                        <IconButton
+                                            tooltip='Редактировать'
+                                            tooltipPosition='top-center'
+                                            style={{
+                                                position: 'absolute',
+                                                right: 90,
+                                                top: 4
+                                            }}
+                                            iconStyle={{
+                                                fill: Colors.green500
+                                            }}
+                                            onClick={this.navGo.bind(this, `${urls.categories.edit.url}/${item._id.$oid}`)}
+                                        >
+                                            <EditorModeEdit/>
+                                        </IconButton>
+                                        <IconButton
+                                            tooltip='Редактировать'
+                                            tooltipPosition='top-center'
+                                            style={{
+                                                position: 'absolute',
+                                                right: 50,
+                                                top: 4
+                                            }}
+                                            iconStyle={{
+                                                fill: Colors.red500
+                                            }}
+                                        >
+                                            <Delete/>
+                                        </IconButton>
+                                    </ListItem>
                                 );
                             }, this)
                         }
                     </List>
                     <div className='btn-add-content'>
-                        <FloatingActionButton onClick={this.navGo.bind(this, urls.categories.create.url)}><ContentAdd/></FloatingActionButton>
+                        <FloatingActionButton
+                            onClick={this.navGo.bind(this, urls.categories.create.url)}
+                        >
+                            <ContentAdd/>
+                        </FloatingActionButton>
                     </div>
                 </div>
             );

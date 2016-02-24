@@ -15,6 +15,10 @@ const urls = {
         create: {
             name: 'Новая категория',
             url: '/categories/create'
+        },
+        edit: {
+            name: 'Редактировать категорию',
+            url: '/categories/edit'
         }
     }
 };

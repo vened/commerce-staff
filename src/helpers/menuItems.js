@@ -1,4 +1,4 @@
-import urls from './urls'
+import urls from './urls';
 
 const sidebarItems = [
     { name: urls.root.name, url: urls.root.url },
