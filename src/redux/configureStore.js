@@ -11,7 +11,7 @@ export default function configureStore ({ initialState = {}, history }) {
     // Compose final middleware and use devtools in debug environment
     let middleware = applyMiddleware(thunk, routerMiddleware);
 
-    if (__DEBUG__ && false) {
+    if (__DEBUG__) {
         if (window.devToolsExtension) {
             var devTools = window.devToolsExtension();
         } else {

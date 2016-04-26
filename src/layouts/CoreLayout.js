@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
-import { routeActions } from 'react-router-redux';
-import { connect } from 'react-redux';
-import urls from '../helpers/urls';
+import React, {PropTypes} from 'react';
+import {routeActions} from 'react-router-redux';
+import {connect} from 'react-redux';
 
+import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
 import {AppBar, IconButton} from 'material-ui';
 import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
@@ -27,16 +27,9 @@ export class CoreLayout extends React.Component {
         };
 
         return (
-
             <div className='CoreLayout'>
-                <AppBar
+                <Header
                     title={this.props.title}
-                    zDepth={1}
-                    style={AppBarStyle}
-                />
-                <Sidebar
-                    leftNavWidth={leftNavWidth}
-                    appBarHeight={appBarHeight}
                 />
                 <div style={contentContainerStyle} className='CoreLayoutContentContainer'>
                     {this.props.children}
