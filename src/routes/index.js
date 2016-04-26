@@ -9,6 +9,7 @@ import Page from '../views/Page/Page';
 
 import Categories from '../components/Categories/Categories';
 import CategoriesForm from '../components/Categories/CategoriesForm';
+import CategoriesEdit from '../components/Categories/CategoriesEdit';
 
 import NotFoundView from 'views/NotFoundView/NotFoundView';
 
@@ -24,7 +25,7 @@ export default (store) => (
 
             <Route path={urls.categories.list.url} component={requireAuthentication(Categories)}/>
             <Route path={urls.categories.create.url} component={requireAuthentication(CategoriesForm)}/>
-            <Route path={`${urls.categories.edit.url}/:id`} component={requireAuthentication(CategoriesForm)}/>
+            <Route path={`${urls.categories.edit.url}/:id`} component={requireAuthentication(CategoriesEdit)}/>
 
             <Route path={urls.admins.url} component={requireAuthentication(Page)}/>
 
