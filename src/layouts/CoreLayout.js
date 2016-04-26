@@ -19,7 +19,7 @@ export class CoreLayout extends React.Component {
 
         let contentContainerStyle = {
             paddingLeft: leftNavWidth + 10,
-            paddingTop: appBarHeight + 10
+            paddingTop: appBarHeight
         };
 
         let AppBarStyle = {
@@ -33,8 +33,6 @@ export class CoreLayout extends React.Component {
                     title={this.props.title}
                     zDepth={1}
                     style={AppBarStyle}
-                    showMenuIconButton={false}
-                    iconElementLeft={<IconButton onTouchTap={this.handleToggle}><LeftNavToggle /></IconButton>}
                 />
                 <Sidebar
                     leftNavWidth={leftNavWidth}
