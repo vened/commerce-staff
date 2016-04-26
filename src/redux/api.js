@@ -1,4 +1,4 @@
-const __API_HOST__ = '//localhost:3000/api/v1/';
+const __API_HOST__ = '//localhost:3000/staff/api/v1/';
 
 export const API_CREATE_SESSION = `${__API_HOST__}login`;
 

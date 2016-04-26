@@ -11,7 +11,7 @@ export class LoginPage extends React.Component {
     constructor (props, context) {
         super(props, context);
         this.state = {
-            username: 'maxstbn@yandex.ru',
+            email: 'maxstbn@gmail.com',
             password: 'qwerty123'
         };
     }
@@ -39,7 +39,7 @@ export class LoginPage extends React.Component {
     }
 
     handleChangeName (e) {
-        this.setState({ username: e.target.value });
+        this.setState({ email: e.target.value });
     }
 
     handleChangePassword (e) {
@@ -60,9 +60,9 @@ export class LoginPage extends React.Component {
                             <TextField
                                 className={classes.TextField}
                                 floatingLabelText='Ваш E-mail'
-                                name='username'
+                                name='email'
                                 type='text'
-                                value={this.state.username}
+                                value={this.state.email}
                                 onChange={this.handleChangeName.bind(this)}
                             />
                         </div>
