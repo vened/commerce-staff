@@ -14,24 +14,12 @@ export class CoreLayout extends React.Component {
     }
 
     render () {
-        let leftNavWidth = 240;
-        let appBarHeight = 64;
-
-        let contentContainerStyle = {
-            paddingLeft: leftNavWidth + 10,
-            paddingTop: appBarHeight
-        };
-
-        let AppBarStyle = {
-            position: 'fixed'
-        };
-
         return (
             <div className='CoreLayout'>
                 <Header
                     title={this.props.title}
                 />
-                <div style={contentContainerStyle} className='CoreLayoutContentContainer'>
+                <div className='CoreLayoutContentContainer'>
                     {this.props.children}
                 </div>
             </div>
