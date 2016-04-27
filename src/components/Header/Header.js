@@ -1,13 +1,19 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {destroySession} from '../../redux/actions/SessionActions';
+import {routeActions} from 'react-router-redux';
 
 export class Header extends React.Component {
     constructor (props) {
         super(props);
     }
-
+    
+    logout () {
+        this.props.dispatch(destroySession())
+    }
+    
+    
     render () {
-        console.log(this.props);
         return (
             <header className="b-header">
                 <div className="b-header__container">
@@ -17,16 +23,17 @@ export class Header extends React.Component {
                             commerceCms
                         </a>
                     </div>
-
+                    
                     <div className="b-header-admin">
                         <div className="b-header-admin__item b-header-admin__current">
                             svsrv
                         </div>
-                        <a className="b-header-admin__item b-header-admin__logout b-header-link" href="/">
-                            arf
-                        </a>
+                        <span className="b-header-admin__item b-header-admin__logout b-header-link"
+                              onClick={this.logout.bind(this)}>
+                            logout
+                        </span>
                     </div>
-
+                
                 </div>
             </header>
         );

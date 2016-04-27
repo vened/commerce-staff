@@ -1,6 +1,6 @@
 import ActionTypes from '../ActionTypes';
 import ApiClient from '../utils/ApiClient';
-import { API_CREATE_SESSION } from '../api';
+import {API_CREATE_SESSION} from '../api';
 
 export function createSession (form) {
     return dispatch => {
@@ -21,3 +21,11 @@ function setSession (data) {
         }
     };
 }
+
+export function destroySession (data) {
+    return {
+        type: ActionTypes.DESTROY_SESSION,
+        payload: { ...data }
+    };
+}
+

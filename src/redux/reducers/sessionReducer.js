@@ -1,6 +1,6 @@
 import ActionTypes from '../ActionTypes';
-import { createReducer } from '../utils/createReducer';
-import { setSessionStorage, getSessionStorage } from '../utils/sessionStorage';
+import {createReducer} from '../utils/createReducer';
+import {setSessionStorage, getSessionStorage, destroySessionStorage} from '../utils/sessionStorage';
 
 let session = getSessionStorage('session');
 let initialState = session ? { ...session } : { isAuthenticated: false };
@@ -11,5 +11,9 @@ export default createReducer(initialState, {
         return Object.assign({}, state, {
             ...payload
         });
+    },
+    [ActionTypes.DESTROY_SESSION]: (state, payload) => {
+        destroySessionStorage('session');
+        return initialState
     }
 });
