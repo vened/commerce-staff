@@ -2,32 +2,161 @@
 
 // Some best-practice CSS that's useful for most apps
 // Just remove them if they're not what you want
-html{
-    box-sizing: border-box;
-}
 html,
 body{
-    margin: 0;
-    padding: 0;
+    width: 100%;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+
+    color: $base-font-color;
+    font-size: $base-font-size;
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
 }
-*,
-*:before,
-*:after{
-    box-sizing: inherit;
+body{
+    background: $layout-background;
+}
+*{
+    box-sizing: border-box;
+}
+section{
+    display: block
+}
+a{
+    outline: none;
+}
+.container__content{
+    background-color: $white;
+    border: 1px solid $gray-light-2;
+}
+.navbar{
+    font-size: 1.1rem;
+}
+.page-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px;
+    padding: 6px 10px;
+    background-color: $white;
+    border: 1px solid $gray-light-2;
+    color: $brand-primary;
+
+    h1{
+        margin: 0;
+    }
+}
+.page-title-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-title-action__link-back{
+    margin-right: 15px;
+}
+//items-list
+.btn-items-list-collapse{
+    margin-right: 5px;
+    padding: 0 4px;
+}
+.items-list-icon-folder{
+    margin-right: 5px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.items-list{
+    border-width: 1px;
+    border-color: $gray-light-2;
+    border-style: solid;
+}
+.items-list-item{
+    display: flex;
+    justify-content: space-between;
+    background-color: $white;
+    border-bottom: 1px solid $gray-light-2;
+
+    &.collapse{
+        overflow: hidden;
+        border-bottom: none;
+
+        &.in{
+            display: flex;
+            border-bottom: 1px solid $gray-light-2;
+        }
+    }
+}
+.items-list-item__head{
+    font-weight: bold;
+}
+.items-list-item-ceil{
+    padding: 10px;
+    box-shadow: 1px 0 0 0 $gray-light-2;
+}
+$items-list-item-ceil__id-width: 60px;
+$items-list-item-ceil__actions-width: 46px;
+.items-list-item-ceil__id,
+.product-list-ceil__id{
+    width: $items-list-item-ceil__id-width;
+}
+.items-list-item-ceil__title{
+    display: flex;
+    align-items: flex-end;
+    width: calc(70% - #{$items-list-item-ceil__id-width + $items-list-item-ceil__actions-width});
+}
+.items-list-item-ceil__url{
+    width: 30%;
+}
+.items-list-item-ceil__actions,
+.product-list-ceil__actions{
+    width: $items-list-item-ceil__actions-width;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+
+    vertical-align: top;
+}
+.product-list-ceil__title{
+    display: flex;
+    align-items: flex-end;
+    width: calc(70% - #{$items-list-item-ceil__id-width + $items-list-item-ceil__actions-width});
+}
+.product-list-ceil__category{
+    width: 20%;
+}
+.product-list-ceil__sku{
+    width: 10%;
+}
+.items-list-item__level-1{
+    background-color: darken(#fff, 4%);
+    .items-list-item-ceil__title{
+        padding-left: 30px;
+    }
+}
+.items-list-item__level-2{
+    background-color: darken(#fff, 8%);
+    .items-list-item-ceil__title{
+        padding-left: 60px;
+    }
+}
+.items-list-item__level-3{
+    background-color: darken(#fff, 12%);
+    .items-list-item-ceil__title{
+        padding-left: 90px;
+    }
+}
+.items-list-item__level-4{
+    background-color: darken(#fff, 16%);
+    .items-list-item-ceil__title{
+        padding-left: 120px;
+    }
+}
+.form-horizontal{
+    .control-label{
+        padding-right: 0;
+    }
 }
 .CoreLayout{
     height: 100%;
     min-height: 100%;
-
-    //display: flex;
-    //flex-direction: column;
-    //justify-content: space-between;
-    //align-items: center;
-}
-.CoreLayoutContentContainer{
-    padding: 10px;
 }
 .loader{
     height: 100%;

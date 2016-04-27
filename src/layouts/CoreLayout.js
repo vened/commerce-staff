@@ -3,9 +3,7 @@ import {routeActions} from 'react-router-redux';
 import {connect} from 'react-redux';
 
 import Header from '../components/Header/Header';
-import Sidebar from '../components/Sidebar/Sidebar';
 import {AppBar, IconButton} from 'material-ui';
-import LeftNavToggle from 'material-ui/lib/svg-icons/navigation/menu';
 import '../styles/core.scss';
 
 export class CoreLayout extends React.Component {
@@ -16,9 +14,7 @@ export class CoreLayout extends React.Component {
     render () {
         return (
             <div className='CoreLayout'>
-                <Header
-                    title={this.props.title}
-                />
+                <Header/>
                 <div className='CoreLayoutContentContainer'>
                     {this.props.children}
                 </div>
@@ -32,10 +28,10 @@ CoreLayout.propTypes = {
 };
 
 
-function mapStateToProps (state) {
-    return {
-        title: state.config.title,
-        email: state.session.email
-    };
-}
-export default connect(mapStateToProps)(CoreLayout);
+// function mapStateToProps (state) {
+//     return {
+//         title: state.config.title,
+//         email: state.session.email
+//     };
+// }
+export default CoreLayout;

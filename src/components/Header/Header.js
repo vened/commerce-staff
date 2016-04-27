@@ -7,21 +7,36 @@ export class Header extends React.Component {
     }
 
     render () {
+        console.log(this.props);
         return (
-            <div className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="#">CMS</a>
+            <header className="b-header">
+                <div className="b-header__container">
+                    
+                    <div className="b-header-brand">
+                        <a className="b-header-link b-header-brand__item" href="/">
+                            commerceCms
+                        </a>
                     </div>
+
+                    <div className="b-header-admin">
+                        <div className="b-header-admin__item b-header-admin__current">
+                            svsrv
+                        </div>
+                        <a className="b-header-admin__item b-header-admin__logout b-header-link" href="/">
+                            arf
+                        </a>
+                    </div>
+
                 </div>
-            </div>
+            </header>
         );
     }
 }
 
 function mapStateToProps (state) {
     return {
-        // email: state.session.email,
+        title: state.config.title,
+        session: state.session,
     };
 }
 export default connect(mapStateToProps)(Header);
