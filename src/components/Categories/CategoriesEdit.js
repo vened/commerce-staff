@@ -9,7 +9,6 @@ import { categoryCreate } from '../../redux/actions/categoryActions';
 import setAppBarTitle from '../../redux/actions/configActions';
 import urls from '../../helpers/urls';
 
-import cssClass from '../../styles/Categories.scss';
 import { List, ListItem, TextField, FlatButton, RaisedButton, Dialog } from 'material-ui';
 
 export class CategoriesEdit extends React.Component {

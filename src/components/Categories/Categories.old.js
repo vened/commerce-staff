@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
 import { reduxForm } from 'redux-form';
 
-import cssClass from '../../styles/Categories.scss';
 import { categoryGetList, categoryCreate } from '../../redux/actions/categoryActions';
 import { List, ListItem, TextField, FlatButton, RaisedButton, Dialog } from 'material-ui';
 //import { AppBar, RaisedButton, TextField } from 'material-ui';

@@ -8,7 +8,6 @@ import { categoryGetList } from '../../redux/actions/categoryActions';
 import setAppBarTitle from '../../redux/actions/configActions';
 import urls from '../../helpers/urls';
 
-import cssClass from '../../styles/Categories.scss';
 import Colors from 'material-ui/lib/styles/colors';
 import { List, ListItem, FloatingActionButton, CircularProgress, IconButton } from 'material-ui';
 import EditorModeEdit from 'material-ui/lib/svg-icons/editor/mode-edit';

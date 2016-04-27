@@ -128,7 +128,7 @@ const cssLoader = !config.compiler_css_modules
     'css?modules',
     'sourceMap',
     'importLoaders=1',
-    'localIdentName=[name]__[local]___[hash:base64:5]'
+    'localIdentName=[local]'
   ].join('&')
 
 webpackConfig.module.loaders.push({
@@ -137,7 +137,6 @@ webpackConfig.module.loaders.push({
   loaders: [
     'style',
     cssLoader,
-    'postcss',
     'sass?sourceMap'
   ]
 })
@@ -147,8 +146,7 @@ webpackConfig.module.loaders.push({
   include: /src/,
   loaders: [
     'style',
-    cssLoader,
-    'postcss'
+    cssLoader
   ]
 })
 
@@ -159,7 +157,6 @@ webpackConfig.module.loaders.push({
   loaders: [
     'style',
     'css?sourceMap',
-    'postcss',
     'sass?sourceMap'
   ]
 })
@@ -170,8 +167,7 @@ webpackConfig.module.loaders.push({
   exclude: /src/,
   loaders: [
     'style',
-    'css?sourceMap',
-    'postcss'
+    'css?sourceMap'
   ]
 })
 
@@ -179,20 +175,6 @@ webpackConfig.sassLoader = {
   includePaths: paths.client('styles')
 }
 
-webpackConfig.postcss = [
-  cssnano({
-    autoprefixer: {
-      add: true,
-      remove: true,
-      browsers: ['last 2 versions']
-    },
-    discardComments: {
-      removeAll: true
-    },
-    safe: true,
-    sourcemap: true
-  })
-]
 
 // File loaders
 /* eslint-disable */
